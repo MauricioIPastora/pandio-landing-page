@@ -9,7 +9,7 @@ export default function Home() {
       <Navbar />
       </header>
       <ShaderBackground> 
-      <main>  
+      <main className="mt-16">  
         <HeroSection />
         </main>
       </ShaderBackground>
