@@ -12,7 +12,7 @@ export function HeroSection() {
               className="mb-8"
             >
               <h1 id="main-title" className="text-4xl font-bold tracking-tight text-foreground sm:text-6xl lg:text-7xl text-center">
-                A browser that helps you <strong>work,</strong> <br />
+                A browser that helps you <strong>work</strong>, <br />
                 <span>not</span> just <em className="italic">surf</em>
               </h1>
             </motion.div>

@@ -20,7 +20,7 @@ export function Navbar() {
                 <NavigationMenu className="flex">
                     <NavigationMenuList className="flex">
                         <NavigationMenuItem>
-                            <Image src="/pandio-logo.png" alt="Logo" width={150} height={150} />
+                            <Image src="/pandio-logo.png" alt="Logo" width={175} height={175} />
                         </NavigationMenuItem>
                 </NavigationMenuList>
                 </NavigationMenu>
