@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function Navbar() {
     return (
-        <div className="flex justify-between w-full">
+        <div className="flex justify-between w-full fixed top-0 z-50">
             <div className="flex justify-start items-center">
                 <NavigationMenu className="flex">
                     <NavigationMenuList className="flex">
@@ -14,18 +14,18 @@ export function Navbar() {
                 </NavigationMenuList>
                 </NavigationMenu>
             </div>
-            <div className="flex justify-center rounded-lg bg-gray-500/40 backdrop-blur-sm items-center m-3 h-10">
-                <NavigationMenu className="flex m-3 text-white/80">
+            <div className="flex justify-center rounded-2xl bg-foreground/50 backdrop-blur-sm items-center m-3 h-10">
+                <NavigationMenu className="flex m-3 text-white">
                     <NavigationMenuList>
                         <NavigationMenuItem>
-                            <NavigationMenuLink className="hover:text-gray-400 hover:bg-transparent">
+                            <NavigationMenuLink className="hover:text-gray-500/75 hover:bg-transparent">
                                 <Link href="#">
                                     About
                                 </Link>
                             </NavigationMenuLink>
                         </NavigationMenuItem>
                         <NavigationMenuItem>
-                            <NavigationMenuLink className="hover:text-gray-400 hover:bg-transparent">
+                            <NavigationMenuLink className="hover:text-gray-500/75 hover:bg-transparent">
                                 <Link href="#">
                                     Features
                                 </Link>
@@ -34,11 +34,11 @@ export function Navbar() {
                     </NavigationMenuList>
                 </NavigationMenu>
             </div>
-            <div className="flex justify-end rounded-lg bg-gray-500/40 backdrop-blur-sm items-center m-3 h-10">
-                <NavigationMenu className="flex m-3 text-white/80">
+        <div className="flex justify-end rounded-2xl bg-foreground/50 backdrop-blur-sm items-center m-3 h-10">
+                <NavigationMenu className="flex m-3 text-white">
                         <NavigationMenuList>
                     <NavigationMenuItem>
-                            <NavigationMenuLink className="hover:text-gray-400 hover:bg-transparent">
+                            <NavigationMenuLink className="hover:text-gray-500/75 hover:bg-transparent">
                                 <Link href="#">
                                    Download
                                 </Link>
