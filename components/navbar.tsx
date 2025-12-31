@@ -25,7 +25,7 @@ export function Navbar() {
                 </NavigationMenuList>
                 </NavigationMenu>
             </div>
-            <div className="absolute left-1/2 transform -translate-x-1/2 flex justify-center rounded-2xl bg-foreground/50 backdrop-blur-sm items-center m-5 h-10">
+            {/* <div className=" align-items-center transform flex justify-center rounded-2xl bg-foreground/50 backdrop-blur-sm items-center m-5 h-10">
                 <NavigationMenu className="flex m-3 text-white">
                     <NavigationMenuList>
                         <NavigationMenuItem>
@@ -51,7 +51,7 @@ export function Navbar() {
                         </NavigationMenuItem>
                     </NavigationMenuList>
                 </NavigationMenu>
-            </div>
+            </div> */}
             <div className="flex justify-end rounded-2xl bg-foreground/50 backdrop-blur-sm items-center m-3 h-12 overflow-hidden transition-all duration-300 group hover:pl-5 hover:py-2">
                 <NavigationMenu className="flex m-3 text-white">
                   <NavigationMenuList>
