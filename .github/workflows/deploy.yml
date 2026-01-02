@@ -1,0 +1,61 @@
+name: Deploy to S3 + CloudFront
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Run linting
+        run: npm run lint
+
+      - name: Build application
+        run: npm run build
+
+      - name: Configure AWS credentials
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1
+
+      - name: Deploy to S3
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          # Deploy HTML files with short cache (for updates)
+          aws s3 sync out/ s3://${{ secrets.S3_BUCKET }} \
+            --delete \
+            --exclude "*" \
+            --include "*.html" \
+            --cache-control "max-age=0,no-cache,no-store,must-revalidate"
+
+          # Deploy static assets with long cache
+          aws s3 sync out/ s3://${{ secrets.S3_BUCKET }} \
+            --delete \
+            --exclude "*.html" \
+            --cache-control "max-age=31536000,public,immutable"
+
+      - name: Invalidate CloudFront cache
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        run: |
+          aws cloudfront create-invalidation \
+            --distribution-id ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }} \
+            --paths "/*"
