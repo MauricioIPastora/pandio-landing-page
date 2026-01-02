@@ -1,7 +1,6 @@
 "use client";
 
-import { NavigationMenu, NavigationMenuItem, NavigationMenuList, NavigationMenuLink } from "@/components/ui/navigation-menu";
-import Link from "next/link";
+import { NavigationMenu, NavigationMenuItem, NavigationMenuList } from "@/components/ui/navigation-menu";
 import Image from "next/image";
 import { LockIcon } from "lucide-react";
 import { useState } from "react";

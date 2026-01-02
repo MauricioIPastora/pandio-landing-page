@@ -70,8 +70,8 @@ export function FAQ() {
           </AccordionTrigger>
           <AccordionContent className="px-3">
             <p>
-              Pandio takes the context of the page you're browsing in order to
-              answer your questions
+              Pandio takes the context of the page you&apos;re browsing in order
+              to answer your questions
             </p>
           </AccordionContent>
         </AccordionItem>
